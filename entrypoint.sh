@@ -11,12 +11,9 @@ sed -i "s#VMESS_WSPATH#${VMESS_WSPATH}#g;s#VLESS_WSPATH#${VLESS_WSPATH}#g;s#TROJ
 
 # Set nginx masquerade station
 rm -rf /usr/share/nginx/*
-wget https://github.com/BrahyMasterx/Mktap/archive/refs/heads/main.zip -O /usr/share/nginx/main.zip
-unzip -o "/usr/share/nginx/main.zip" -d /usr/share/nginx/html
-cd /usr/share/nginx/html/Mktap-main
-mv css data fonts js shared favicon.ico icon.png index.html README.md /usr/share/nginx/html
-rm -rf /usr/share/nginx/main.zip
-rm -rf /usr/share/nginx/html/Mktap-main
+wget https://gitlab.com/Misaka-blog/xray-paas/-/raw/main/mikutap.zip -O /usr/share/nginx/mikutap.zip
+unzip -o "/usr/share/nginx/mikutap.zip" -d /usr/share/nginx/html
+rm -f /usr/share/nginx/mikutap.zip
 
 # Fake xray executable file
 RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)

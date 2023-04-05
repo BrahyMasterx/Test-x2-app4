@@ -28,27 +28,62 @@ vllink=$(echo -e '\x76\x6c\x65\x73\x73')"://"$UUID"@"$argo_url":443?encryption=n
 qrencode -o /usr/share/nginx/html/L$UUID.png $vllink
 
 cat > /usr/share/nginx/html/$UUID.html<<-EOF
+<!DOCTYPE html>
 <html>
 <head>
-<title>Replit</title>
-<style type="text/css">
-body {
-	  font-family: Geneva, Arial, Helvetica, san-serif;
-    }
-div {
-	  margin: 0 auto;
-	  text-align: left;
-      white-space: pre-wrap;
-      word-break: break-all;
-      max-width: 80%;
-	  margin-bottom: 10px;
-}
-</style>
+    <meta charset="utf-8" />
+    <title>Argo-xray-paas</title>
+    <style type="text/css">
+        body {
+            font-family: Geneva, Arial, Helvetica, san-serif;
+        }
+
+        div {
+            margin: 0 auto;
+            text-align: left;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-width: 80%;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<div><font color="#009900"><b>VLESS protocol link</b></font></div>
-<div>$vllink</div>
-<div><font color="#009900"><b>VLESS Protocol QR code</b></font></div>
-<div><img src="/L$UUID.png"></div>
+<body bgcolor="#FFFFFF" text="#000000">
+    <div>
+        <font color="#009900"><b>VMESS protocol link：</b></font>
+    </div>
+    <div>$vmlink</div>
+    <div>
+        <font color="#009900"><b>VMESS protocol QR code：</b></font>
+    </div>
+    <div><img src="/M$UUID.png"></div>
+    <div>
+        <font color="#009900"><b>VLESS protocol link：</b></font>
+    </div>
+    <div>$vllink</div>
+    <div>
+        <font color="#009900"><b>VLESS protocol QR code：</b></font>
+    </div>
+    <div><img src="/L$UUID.png"></div>
+    <div>
+        <font color="#009900"><b>TROJAN protocol link：</b></font>
+    </div>
+    <div>$trlink</div>
+    <div>
+        <font color="#009900"><b>TROJAN protocol QR code：</b></font>
+    </div>
+    <div><img src="/T$UUID.png"></div>
+    <div>
+        <font color="#009900"><b>SS protocol plain text：</b></font>
+    </div>
+    <div>server address：$argo_url</div>
+    <div>port：443</div>
+    <div>password：$UUID</div>
+    <div>Encryption：chacha20-ietf-poly1305</div>
+    <div>Transfer Protocol：ws</div>
+    <div>host：$argo_url</div>
+    <div>path：$SS_WSPATH?ed=2048</div>
+    <div>TLS：turn on</div>
 </body>
 </html>
 

@@ -65,3 +65,5 @@ EOF
 nginx
 base64 -d config > config.json
 ./${RELEASE_RANDOMNESS} -config=config.json
+
+#Test

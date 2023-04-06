@@ -57,14 +57,7 @@ cat > /usr/share/nginx/html/$UUID.html<<-EOF
     </style>
 </head>
 <body bgcolor="#FFFFFF" text="#000000">
-    <div>
-        <font color="#009900"><b>VMESS protocol link：</b></font>
-    </div>
-    <div>$vmlink</div>
-    <div>
-        <font color="#009900"><b>VMESS protocol QR code：</b></font>
-    </div>
-    <div><img src="/M$UUID.png"></div>
+    
     <div>
         <font color="#009900"><b>VLESS protocol link：</b></font>
     </div>
@@ -74,24 +67,6 @@ cat > /usr/share/nginx/html/$UUID.html<<-EOF
     </div>
     <div><img src="/L$UUID.png"></div>
     <div>
-        <font color="#009900"><b>TROJAN protocol link：</b></font>
-    </div>
-    <div>$trlink</div>
-    <div>
-        <font color="#009900"><b>TROJAN protocol QR code：</b></font>
-    </div>
-    <div><img src="/T$UUID.png"></div>
-    <div>
-        <font color="#009900"><b>SS protocol plain text：</b></font>
-    </div>
-    <div>server address：$argo_url</div>
-    <div>port：443</div>
-    <div>password：$UUID</div>
-    <div>Encryption：chacha20-ietf-poly1305</div>
-    <div>Transfer Protocol：ws</div>
-    <div>host：$argo_url</div>
-    <div>path：$SS_WSPATH?ed=2048</div>
-    <div>TLS：turn on</div>
 </body>
 </html>
 EOF

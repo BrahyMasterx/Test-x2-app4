@@ -22,9 +22,7 @@ rm -f config.json
 cloudflared tunnel --url http://localhost:80 --no-autoupdate > argo.log 2>&1 &
 sleep 5 && argo_url=$(cat argo.log | grep -oE "https://.*[a-z]+cloudflare.com" | sed "s#https://##")
 
-
 vllink=$(echo -e '\x76\x6c\x65\x73\x73')"://"$UUID"@"$argo_url":443?encryption=none&security=tls&type=ws&host="$argo_url"&path="$VLESS_WSPATH"?ed=2048#Argo_xray_vless"
-
 
 qrencode -o /usr/share/nginx/html/L$UUID.png $vllink
 
